@@ -1,0 +1,7 @@
+<div *ngIf="dataLoaded == false" class="spinner-border" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<ul class="list-group">
+    <li class="list-group-item strong h5">All Colors</li>
+    <li *ngFor="let color of colors" class="list-group-item">{{color.name}}</li>
+  </ul>
