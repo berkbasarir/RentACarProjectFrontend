@@ -1,3 +1,8 @@
+![all](https://user-images.githubusercontent.com/65342699/112403814-2db15b80-8d20-11eb-8bdb-173882adfffa.png)
+![brand](https://user-images.githubusercontent.com/65342699/112403822-32760f80-8d20-11eb-8f7a-b14421ae4a77.png)
+![color](https://user-images.githubusercontent.com/65342699/112403826-34d86980-8d20-11eb-8940-367de6616116.png)
+
+
 # Rentacarfrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
