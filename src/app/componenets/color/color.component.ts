@@ -1,31 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Color } from 'src/app/models/color';
 import { ColorService } from 'src/app/services/color.service';
 
 @Component({
   selector: 'app-color',
   templateUrl: './color.component.html',
-  styleUrls: ['./color.component.css'],
+  styleUrls: ['./color.component.css']
 })
 export class ColorComponent implements OnInit {
-  
-  colors: Color[] = [];
-  dataLoaded = false;
 
-  constructor(private colorService:ColorService, 
-    private activatedRoute:ActivatedRoute) {}
-
+  constructor(private colorService: ColorService) { }
+  Colors: Color[] = []
+  currentColor: Color;
 
   ngOnInit(): void {
-      this.getColors()
+    this.GetColors();
   }
 
-  getColors() {
-    this.colorService.getColors().subscribe(response=>{
-      this.colors = response.data
-      this.dataLoaded = true;
-    }) 
+  GetColors() {
+    this.colorService.getColors().subscribe(colors => {
+      this.Colors = colors.data;
+    })
   }
 
+  setCurrentColor(color: Color) {
+    this.currentColor = color
+  }
+
+  getCurrentColorClass(color: Color) {
+    if (color == this.currentColor) {
+      return "list-group-item active"
+    } else {
+      return "list-group-item";
+    }
+  }
 }
