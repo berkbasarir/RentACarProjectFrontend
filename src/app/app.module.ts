@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from "@angular/forms"
+import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,7 +21,8 @@ import { CartSummaryComponent } from './componenets/cart-summary/cart-summary.co
 import { FilterPipeCustomerPipe } from './pipes/filter-pipe-customer.pipe';
 import { FilterPipeRentalPipe } from './pipes/filter-pipe-rental.pipe';
 import { FilterPipeBrandPipe } from './pipes/filter-pipe-brand.pipe';
-import { FilterPipeColorPipe } from './pipes/filter-pipe-color.pipe'
+import { FilterPipeColorPipe } from './pipes/filter-pipe-color.pipe';
+import { CarAddComponent } from './componenets/car-add/car-add.component'
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { FilterPipeColorPipe } from './pipes/filter-pipe-color.pipe'
     FilterPipeCustomerPipe,
     FilterPipeRentalPipe,
     FilterPipeBrandPipe,
-    FilterPipeColorPipe,    
+    FilterPipeColorPipe,
+    CarAddComponent,    
   ],
 
   imports: [
@@ -47,7 +49,8 @@ import { FilterPipeColorPipe } from './pipes/filter-pipe-color.pipe'
     AppRoutingModule, 
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule,    
+    ReactiveFormsModule,
     ToastrModule.forRoot({positionClass: "toast-bottom-right"}),
   ],
 
