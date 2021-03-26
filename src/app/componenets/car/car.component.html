@@ -2,16 +2,51 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 
+<div class="mb-3">
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    placeholder="Search vehicle specification"
+  />
+</div>
+<div *ngIf="filterText" class="alert alert-info">
+  <b>You are looking for:</b> {{ filterText }}
+</div> 
+
 <div class="row">
-  <div *ngFor="let car of Cars" class="myCard p-3 col-md-4">
+  <div class="col-md-3">
+    <app-brand></app-brand>
+    <br />
+    <app-color></app-color>
+  </div>
+  <div class="row col-md-9">
+    <div *ngFor="let car of Cars | filterPipe: filterText" class="col-md-4 mb-3">
       <div class="card">
-          <img [src]="SetImage(car)" class="card-img-top myimg" alt="...">
-          <div class="card-body">
-              <h5 class="card-title">{{car.carName}}</h5>
-              <p class="card-text">Araç bilgileri için detay butonuna tıklayınız.</p>
-              <a href="car/detail/{{car.id}}" class="btn btn-primary float-end">Detay</a>
-          </div>
+        <img [src]="SetImage(car)" class="card-img-top myimg" alt="..." />
+        <div class="card-body">
+          <h4 class="card-title">{{ car.carName | uppercase }}</h4>
+          <p class="card-text"><b>Açıklama:</b> {{ car.description }}.</p>
+          <p class="card-text">
+            <b>Günlük Fiyat:</b> {{ car.dailyPrice | currency }} <br />
+            <b>KDV Dahil:</b> {{ car.dailyPrice | vatAdded: 18 | currency }}
+          </p>
+          <button
+            (click)="addToCart(car)"
+            class="btn btn-success float-end ms-2"
+          >
+            Rent it
+          </button>
+          <button
+            routerLink="car/detail/{{ car.carId }}"
+            class="btn btn-primary float-end"
+          >
+            Details
+          </button>
+        </div>
       </div>
+    </div>
   </div>
 </div>
 

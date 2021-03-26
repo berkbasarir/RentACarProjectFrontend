@@ -12,9 +12,12 @@ export class CustomerComponent implements OnInit {
   
   customers: Customer[] = [];
   dataLoaded = false;
+  filterTextCustomer="";
 
-  constructor(private customerService:CustomerService, 
-    private activatedRoute:ActivatedRoute) {}
+  constructor(
+    private customerService:CustomerService, 
+    private activatedRoute:ActivatedRoute
+    ) {}
 
 
   ngOnInit(): void {

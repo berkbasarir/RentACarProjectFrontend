@@ -12,6 +12,7 @@ export class RentalComponent implements OnInit {
   
   rentals: Rental[] = [];
   dataLoaded = false;
+  filterTextRental="";
 
   constructor(private rentalService:RentalService, 
     private activatedRoute:ActivatedRoute) {}

@@ -1,6 +1,18 @@
 <div *ngIf="dataLoaded == false" class="spinner-border" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
+  <div class="mb-3">
+    <input
+      type="text"
+      [(ngModel)]="filterTextCustomer"
+      class="form-control"
+      id="filterTextCustomer"
+      placeholder="Search Customer Name"
+    />
+  </div>
+  <div *ngIf="filterTextCustomer" class="alert alert-info">
+    <b>You are looking for:</b> {{ filterTextCustomer }}
+  </div>
   <h4>CUSTOMERS</h4>
   <table class="table">
     <thead>
@@ -14,13 +26,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let customer of customers">
+      <tr *ngFor="let customer of customers | filterPipeCustomer: filterTextCustomer">
         <th scope="row">{{ customer.customerId }}</th>
         <td>{{ customer.firstName }}</td>
         <td>{{ customer.lastName }}</td>
         <td>{{ customer.companyName }}</td>
         <td>{{ customer.email }}</td>
-
       </tr>
     </tbody>
   </table>

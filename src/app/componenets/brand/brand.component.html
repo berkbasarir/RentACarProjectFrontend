@@ -1,6 +1,47 @@
+<div class="mb-3">
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterTextBrand"
+    placeholder="Search Brand Name"
+  />
+</div>
+<div *ngIf="filterText" class="alert alert-info">
+  <b>You are looking for:</b> {{ filterText }}
+</div>
+
 <ul class="list-group">
-  <li class="list-group-item strong h5">All Brands</li>    
+  <li routerLink = "/cars" class="list-group-item strong h5">All Brands</li>    
 </ul>
 <ul class="list-group">
-  <li (click)="setCurrentBrand(brand)" *ngFor="let brand of Brands" routerLink="cars/brand/{{brand.id}}" [class]="getCurrentBrandClass(brand)">{{brand.name}}</li>
+  <li (click)="setCurrentBrand(brand)" *ngFor="let brand of Brands | filterPipeBrand: filterText"  routerLink = "/cars/brand/{{brand.id}}" [class]="getCurrentBrandClass(brand)">
+    {{brand.name}}
+  </li>
 </ul>
+<div class="mt-2">
+  <div>
+    <select class="form-select col-md-9" aria-label="Default select example">
+      <option selected>Select Brand</option>
+      <option routerLink = "/cars" class="h5">All Brands</option>
+
+      <option
+      *ngFor="let brand of Brands | filterPipeBrand: filterText" 
+      (click)="setCurrentBrand(brand)" 
+      routerLink="/cars/brand/{{brand.id}}" 
+      [class]="getCurrentBrandClass(brand)"
+      >
+      {{brand.name}}      
+      </option>
+    </select>    
+  </div>
+  <div>
+    <button type="button" class="btn btn-primary">Filter</button>
+  </div>
+
+</div>
+
+
+
+
+

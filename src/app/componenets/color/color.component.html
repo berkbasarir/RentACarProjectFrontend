@@ -1,9 +1,54 @@
-<!-- <div *ngIf="dataLoaded == false" class="spinner-border" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div> -->
-<ul class="list-group">
-    <li class="list-group-item strong h5">All Colors</li>
+<div class="mb-3">
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterTextColor"
+    placeholder="Search Color Name"
+  />
+</div>
+<div *ngIf="filterText" class="alert alert-info">
+  <b>You are looking for:</b> {{ filterText }}
+</div> 
+
+ <ul class="list-group">
+    <li routerLink = "/cars" class="list-group-item strong h5">All Colors</li>
 </ul>
 <ul class="list-group">
-  <li (click)="setCurrentColor(color)" *ngFor="let color of Colors" routerLink="cars/color/{{color.id}}" [class]="getCurrentColorClass(color)">{{color.name}}</li>
+  <li (click)="setCurrentColor(color)" *ngFor="let color of Colors | filterPipeBrand: filterText" routerLink="/cars/color/{{color.id}}" [class]="getCurrentColorClass(color)">{{color.name}}</li>
 </ul>
+<div class="mt-2">
+  <div>
+    <select class="form-select col-md-9" aria-label="Default select example">
+      <option selected>Select Color</option>
+      <option routerLink = "/cars" class="h5">All Colors</option>
+
+      <option 
+      (click)="setCurrentColor(color)" 
+      *ngFor="let color of Colors | filterPipeBrand: filterText" 
+      routerLink="/cars/color/{{color.id}}" 
+      [class]="getCurrentColorClass(color)">
+      {{color.name}}
+      </option>  
+
+    </select>
+  </div>
+  <div>
+    <button type="button" class="btn btn-primary">Filter</button>
+  </div>
+</div>
+
+
+
+
+
+<!-- <div *ngIf="filterText" class="alert alert-info">
+  <b>You are looking for:</b> {{ filterText }}
+</div> 
+
+ <ul class="list-group">
+    <li routerLink = "/cars" class="list-group-item strong h5">All Colors</li>
+</ul>
+<ul class="list-group">
+  <li (click)="setCurrentColor(color)" *ngFor="let color of Colors | filterPipeBrand: filterText" routerLink="/cars/color/{{color.id}}" [class]="getCurrentColorClass(color)">{{color.name}}</li>
+</ul> -->

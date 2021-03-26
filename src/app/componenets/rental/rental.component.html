@@ -1,6 +1,18 @@
 <div *ngIf="dataLoaded == false" class="spinner-border" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
+  <div class="mb-3">
+    <input
+      type="text"
+      [(ngModel)]="filterTextRental"
+      class="form-control"
+      id="filterTextRental"
+      placeholder="Search Customer Name"
+    />
+  </div>
+  <div *ngIf="filterTextRental" class="alert alert-info">
+    <b>You are looking for:</b> {{ filterTextRental }}
+  </div>
   <h4>RENTALS</h4>
   <table class="table">
     <thead>
@@ -15,7 +27,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let rental of rentals">
+      <tr *ngFor="let rental of rentals | filterPipeRental: filterTextRental">
         <th scope="row">{{ rental.rentalId }}</th>        
         <td>{{ rental.firstName }}</td>
         <td>{{ rental.lastName }}</td>

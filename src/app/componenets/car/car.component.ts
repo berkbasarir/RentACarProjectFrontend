@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { CarDetail } from 'src/app/models/cardetail';
 import { CardetailService } from 'src/app/services/cardetail.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-car',
@@ -12,8 +14,14 @@ export class CarComponent implements OnInit {
 
   Cars: CarDetail[] = [];
   dataLoaded = false;
+  filterText="";
 
-  constructor(private carDetailService: CardetailService, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private carDetailService: CardetailService, 
+    private activatedRoute: ActivatedRoute, 
+    private toastrService: ToastrService,
+    private cartService: CartService,
+    ) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -47,6 +55,15 @@ export class CarComponent implements OnInit {
       this.Cars = cardetails.data;
       this.dataLoaded = true;
     })
+  }
+
+  addToCart(car:CarDetail){    
+    if(car.carId===3){
+      this.toastrService.error(car.description, "Error")
+    }else{
+      this.toastrService.success(car.description, "Added")
+      this.cartService.addToCart(car);
+    }      
   }
 
   staticFilesUrl = "https://localhost:44351/uploads/";
