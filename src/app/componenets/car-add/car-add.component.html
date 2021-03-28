@@ -4,17 +4,17 @@
             <div class="card-header"><h5 class="title">Add Car</h5></div>
             <div class="card-body">
                 <form [formGroup]="carAddForm">
-                    <label for="carName">Car Name:</label>
+                    <label for="name">Car Name:</label>
                     <div class="form-group mb-3">
-                        <input type="text" id="carName" formControlName="carName" class="form-control" placeholder="Car Name"/>
+                        <input type="text" id="name" formControlName="name" class="form-control" placeholder="Car Name"/>
                     </div>
-                    <label for="brandName">Brand Name:</label>
+                    <label for="brandId">Brand Id:</label>
                     <div class="form-group mb-3">
-                        <input type="text" id="brandName" formControlName="brandName" class="form-control" placeholder="Brand Name"/>
+                        <input type="number" id="brandId" formControlName="brandId" class="form-control" placeholder="Brand Name"/>
                     </div>
-                    <label for="colorName">Color Name:</label>
+                    <label for="colorId">Color Id:</label>
                     <div class="form-group mb-3">
-                        <input type="text" id="colorName" formControlName="colorName" class="form-control" placeholder="Color Name"/>
+                        <input type="number" id="colorId" formControlName="colorId" class="form-control" placeholder="Color Name"/>
                     </div>
                     <label for="modelYear">Model Year:</label>
                     <div class="form-group mb-3">

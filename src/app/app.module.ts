@@ -22,7 +22,9 @@ import { FilterPipeCustomerPipe } from './pipes/filter-pipe-customer.pipe';
 import { FilterPipeRentalPipe } from './pipes/filter-pipe-rental.pipe';
 import { FilterPipeBrandPipe } from './pipes/filter-pipe-brand.pipe';
 import { FilterPipeColorPipe } from './pipes/filter-pipe-color.pipe';
-import { CarAddComponent } from './componenets/car-add/car-add.component'
+import { CarAddComponent } from './componenets/car-add/car-add.component';
+import { ColorAddComponent } from './componenets/color-add/color-add.component';
+import { BrandAddComponent } from './componenets/brand-add/brand-add.component'
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { CarAddComponent } from './componenets/car-add/car-add.component'
     FilterPipeRentalPipe,
     FilterPipeBrandPipe,
     FilterPipeColorPipe,
-    CarAddComponent,    
+    CarAddComponent,
+    ColorAddComponent,
+    BrandAddComponent,    
   ],
 
   imports: [
