@@ -35,13 +35,14 @@ export class CarAddComponent implements OnInit {
   add(){
     if(this.carAddForm.valid){
       let carModel = Object.assign({},this.carAddForm.value) 
-      console.log(carModel)
       this.carService.add(carModel).subscribe(response => {
-        console.log(response)
         this.toastrService.success("Succes", response.message)
       }, responseError => {
-        console.log(responseError.error)
-        this.toastrService.error(responseError.error)        
+        if(responseError.error.ValidationErrors.length>0){
+          for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
+            this.toastrService.error(responseError.error.ValidationErrors[i].ErrorMessage, "Doğrulama Hatası") 
+          }
+        }      
       })
     }else{
       this.toastrService.error("Validation Error")
