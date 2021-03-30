@@ -32,11 +32,22 @@
             <a class="nav-link" routerLink = "/login">Login</a>
           </li>  
           <li class="nav-item">
-            <a class="nav-link" routerLink = "#">Register</a>
+            <a class="nav-link" routerLink = "/register">Register</a>
           </li>  
           <li class="nav-item">
             <app-cart-summary></app-cart-summary>
-          </li>         
+          </li>    
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              user.Name
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink = "/cars/add">user.firstName</a></li>
+              <li><a class="dropdown-item" routerLink = "/cars/add">user.lastName</a></li>
+              <li><a class="dropdown-item" routerLink = "/brands/add">user.email</a></li>
+              <li><a class="dropdown-item" routerLink = "/colors/add">user.password</a></li>
+            </ul>
+          </li>     
         </ul>
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
