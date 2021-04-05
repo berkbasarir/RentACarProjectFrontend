@@ -12,7 +12,7 @@ import { ColorComponent } from './componenets/color/color.component';
 import { CustomerComponent } from './componenets/customer/customer.component';
 import { RentalComponent } from './componenets/rental/rental.component';
 import { NaviComponent } from './componenets/navi/navi.component';
-import { CardetailComponent } from './componenets/cardetail/cardetail.component';
+import { CardetailComponent } from './componenets/car-detail/car-detail.component';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 
@@ -28,6 +28,8 @@ import { BrandAddComponent } from './componenets/brand-add/brand-add.component';
 import { LoginComponent } from './componenets/login/login.component'
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './componenets/register/register.component';
+import { FooterComponent } from './componenets/footer/footer.component';
+import { HeroComponent } from './componenets/hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { RegisterComponent } from './componenets/register/register.component';
     ColorAddComponent,
     BrandAddComponent,
     LoginComponent,
-    RegisterComponent,    
+    RegisterComponent,
+    FooterComponent,
+    HeroComponent,    
   ],
 
   imports: [

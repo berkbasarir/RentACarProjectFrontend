@@ -14,8 +14,10 @@ export class RentalComponent implements OnInit {
   dataLoaded = false;
   filterTextRental="";
 
-  constructor(private rentalService:RentalService, 
-    private activatedRoute:ActivatedRoute) {}
+  constructor(
+    private rentalService:RentalService, 
+    private activatedRoute:ActivatedRoute,
+    ) {}
 
 
   ngOnInit(): void {

@@ -1,0 +1,25 @@
+.bg{
+    background-image: url("https://localhost:44351/uploads/hero.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+    
+}
+.text{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-shadow:5px 5px 10px black;
+    padding-left: 250px;
+}
+.blue{
+    color: #0d6efd;
+}
+
+
+
+.bg-gray{
+    background-color: rgb(231, 231, 231);
+}

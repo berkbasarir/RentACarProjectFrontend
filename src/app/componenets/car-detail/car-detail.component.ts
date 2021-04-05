@@ -8,8 +8,8 @@ import { ImageService } from 'src/app/services/image.service';
 
 @Component({
   selector: 'app-cardetail',
-  templateUrl: './cardetail.component.html',
-  styleUrls: ['./cardetail.component.css']
+  templateUrl: './car-detail.component.html',
+  styleUrls: ['./car-detail.component.css']
 })
 export class CardetailComponent implements OnInit {
 
@@ -17,7 +17,11 @@ export class CardetailComponent implements OnInit {
   images: Image[] = []
   dataLoaded = false;
 
-  constructor(private carDetailService: CardetailService, private imageService: ImageService, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private carDetailService: CardetailService, 
+    private imageService: ImageService, 
+    private activatedRoute: ActivatedRoute,
+    ) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
