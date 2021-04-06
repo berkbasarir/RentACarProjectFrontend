@@ -18,17 +18,17 @@
   </div> 
 
   
-<div class="container-xl">
+<div class="">
   <div class="row justify-content-xl-center">
 
 
 
-    <div class="col-md-2">
+    <div class="col-md-3">
       <app-brand></app-brand>
       <br />
       <app-color></app-color>
     </div>
-    <div class="row col-md-10">
+    <div class="row col-md-9">
       <div *ngFor="let car of Cars | filterPipe: filterText" class="col-md-3 mb-4">
         <div class="card">
           <img [src]="SetImage(car)" class="card-img-top myimg" alt="{{ car.description }}" />

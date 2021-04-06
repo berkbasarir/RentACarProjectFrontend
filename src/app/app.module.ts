@@ -30,6 +30,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './componenets/register/register.component';
 import { FooterComponent } from './componenets/footer/footer.component';
 import { HeroComponent } from './componenets/hero/hero.component';
+import { BrandUpdateComponent } from './componenets/brand-update/brand-update.component';
+import { ColorUpdateComponent } from './componenets/color-update/color-update.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { HeroComponent } from './componenets/hero/hero.component';
     LoginComponent,
     RegisterComponent,
     FooterComponent,
-    HeroComponent,    
+    HeroComponent,
+    BrandUpdateComponent,
+    ColorUpdateComponent,    
   ],
 
   imports: [

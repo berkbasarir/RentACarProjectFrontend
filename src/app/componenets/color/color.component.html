@@ -1,4 +1,42 @@
-<div class="mb-3">
+<div class="row mt-3">
+  <div class="col-lg">
+    <div>
+      <input type="text" [(ngModel)]="filterText" class="form-control rounded-0 mb-3"
+            placeholder="Renk Ara" autocomplete="off">
+    </div>
+     <table class="table table-hover table-striped border">
+        <thead>
+        <tr>
+           <th class="text-center" style="width: 50px">#</th>
+           <th>Renk</th>
+           <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let color of colors | filterPipeBrand: filterText">
+           <th class="text-center">{{ color.id }}</th>
+           <td>{{ color.name }}</td>
+           <td class="text-end">
+              <button class="btn btn-primary btn-sm"
+                      routerLink="/colors/update/{{ color.id }}">
+                 <i class="bi-pencil me-1"></i> GÜNCELLE
+              </button>
+           </td>
+        </tr>
+        </tbody>
+     </table>
+     <div>
+      <div class="d-grid">
+        <button class="btn btn-primary" routerLink="/colors/add">
+           <i class="bi-plus-square me-1"></i> Yeni Renk Ekle
+        </button>
+     </div>
+     </div>
+  </div>
+
+</div>
+
+<!-- <div class="mb-3">
   <input
     type="text"
     [(ngModel)]="filterText"
@@ -36,11 +74,7 @@
   <div>
     <button type="button" class="btn btn-primary">Filter</button>
   </div>
-</div>
-
-
-
-
+</div> -->
 
 <!-- <div *ngIf="filterText" class="alert alert-info">
   <b>You are looking for:</b> {{ filterText }}
