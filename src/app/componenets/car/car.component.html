@@ -29,7 +29,7 @@
       <app-color></app-color>
     </div>
     <div class="row col-md-9">
-      <div *ngFor="let car of Cars | filterPipe: filterText" class="col-md-3 mb-4">
+      <div *ngFor="let car of Cars | filterPipe: filterText" class="col-md-4 mb-4">
         <div class="card">
           <img [src]="SetImage(car)" class="card-img-top myimg" alt="{{ car.description }}" />
           <div class="card-body">

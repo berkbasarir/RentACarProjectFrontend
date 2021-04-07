@@ -32,6 +32,7 @@ import { FooterComponent } from './componenets/footer/footer.component';
 import { HeroComponent } from './componenets/hero/hero.component';
 import { BrandUpdateComponent } from './componenets/brand-update/brand-update.component';
 import { ColorUpdateComponent } from './componenets/color-update/color-update.component';
+import { CarUpdateComponent } from './componenets/car-update/car-update.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ColorUpdateComponent } from './componenets/color-update/color-update.co
     FooterComponent,
     HeroComponent,
     BrandUpdateComponent,
-    ColorUpdateComponent,    
+    ColorUpdateComponent,
+    CarUpdateComponent,    
   ],
 
   imports: [

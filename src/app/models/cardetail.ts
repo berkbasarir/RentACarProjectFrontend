@@ -9,4 +9,5 @@ export interface CarDetail {
     imageId: number;
     imagePath: string;
     date: Date;
+    findexPoint: number;
 }

@@ -14,15 +14,17 @@ import { BrandUpdateComponent } from './componenets/brand-update/brand-update.co
 import { BrandComponent } from './componenets/brand/brand.component';
 import { ColorComponent } from './componenets/color/color.component';
 import { ColorUpdateComponent } from './componenets/color-update/color-update.component';
+import { CarUpdateComponent } from './componenets/car-update/car-update.component';
 
 const routes: Routes = [
   { path: "", pathMatch: "full", component: CarComponent, canActivate:[LoginGuard] },
 
   { path: "cars", component: CarComponent, canActivate:[LoginGuard] },  
+  { path: "cars/add", component: CarAddComponent, canActivate:[LoginGuard] },
+  { path: "cars/update/:carId", component: CarUpdateComponent, canActivate:[LoginGuard] },
   { path: "cars/brand/:brandId", component: CarComponent, canActivate:[LoginGuard] },
   { path: "cars/color/:colorId", component: CarComponent, canActivate:[LoginGuard] },
   { path: "cars/detail/:carId", component: CardetailComponent, canActivate:[LoginGuard] },
-  { path: "cars/add", component: CarAddComponent, canActivate:[LoginGuard] },
 
   { path: "customers", component: CustomerComponent, canActivate:[LoginGuard] },
   { path: "rentals", component: RentalComponent, canActivate:[LoginGuard] },

@@ -23,23 +23,18 @@
     <div class="col-md-5">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">{{car.carName}}</h4>
-          <p><strong>Marka : </strong>{{car.brandName}}</p>
-          <p><strong>Model Yılı : </strong>{{car.modelYear}}</p>
-          <p><strong>Renk : </strong>{{car.colorName}}</p>
-          <p><strong>Günlük Fiyat : </strong>{{car.dailyPrice}} TL</p>
-          <button class="btn btn-primary float-end mt-4">Kirala</button>
+          <h2 class="card-title fw-bold mb-3">{{car.carName}}</h2>
+          <p><strong>Marka: </strong>{{car.brandName}}</p>
+          <p><strong>Model Yılı: </strong>{{car.modelYear}}</p>
+          <p><strong>Renk: </strong>{{car.colorName}}</p>          
+          <p><strong>Günlük Fiyat: </strong>{{car.dailyPrice}}TL</p>
+          <p><strong>Açıklama: </strong>{{car.description}}</p>
+          <button class="btn btn-primary float-start mt-4">Kirala</button>
           <!-- <app-rental [car]="car"></app-rental> -->
         </div>
       </div>
     </div>
-  
-    <div class="col-md-12 my-5">
-      <div class="card">
-        <div class="card-body">
-          <strong>Açıklama</strong>
-          <p>{{car.description}}</p>
-        </div>
-      </div>
+    <div class="col-md-12 my-3">
+      <div class="alert alert-warning" role="alert"><strong>Gerekli Findeks Puanı : </strong>{{car.findexPoint}}</div>
     </div>
   </div>

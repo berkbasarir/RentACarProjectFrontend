@@ -1,5 +1,8 @@
 .myimg{
     width: 100%;
     max-height: 500px;
-    object-fit: scale-down;
+    object-fit: cover;
+}
+.card{
+    height: 100%;
 }
