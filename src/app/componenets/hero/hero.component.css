@@ -9,7 +9,7 @@
 }
 .text{
     display: flex;
-    justify-content: start;
+    /* justify-content: start; */
     align-items: center;
     text-shadow:5px 5px 10px black;
     padding-left: 250px;

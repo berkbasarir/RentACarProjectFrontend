@@ -50,27 +50,13 @@
         </div>
         <div class="col-2">
             <div class="collapse navbar-collapse" id="navbarSupportedContent3">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">               
                 <li class="nav-item">
-                  <a class="nav-link" routerLink = "/login">Login</a>
-                </li>  
-                <li class="nav-item">
-                  <a class="nav-link" routerLink = "/register">Register</a>
+                  <app-auth-menu></app-auth-menu>
                 </li>  
                 <li class="nav-item">
                   <app-cart-summary></app-cart-summary>
-                </li>    
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    user.Name
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" routerLink = "/cars/add">user.firstName</a></li>
-                    <li><a class="dropdown-item" routerLink = "/cars/add">user.lastName</a></li>
-                    <li><a class="dropdown-item" routerLink = "/brands/add">user.email</a></li>
-                    <li><a class="dropdown-item" routerLink = "/colors/add">user.password</a></li>
-                  </ul>
-                </li>     
+                </li>       
               </ul>
           </div>
         </div>

@@ -15,6 +15,7 @@ import { BrandComponent } from './componenets/brand/brand.component';
 import { ColorComponent } from './componenets/color/color.component';
 import { ColorUpdateComponent } from './componenets/color-update/color-update.component';
 import { CarUpdateComponent } from './componenets/car-update/car-update.component';
+import { ProfileComponent } from './componenets/profile/profile.component';
 
 const routes: Routes = [
   { path: "", pathMatch: "full", component: CarComponent, canActivate:[LoginGuard] },
@@ -39,6 +40,7 @@ const routes: Routes = [
 
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
+  { path: "profile", component: ProfileComponent },
 ];
 
 @NgModule({

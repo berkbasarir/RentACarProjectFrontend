@@ -33,6 +33,8 @@ import { HeroComponent } from './componenets/hero/hero.component';
 import { BrandUpdateComponent } from './componenets/brand-update/brand-update.component';
 import { ColorUpdateComponent } from './componenets/color-update/color-update.component';
 import { CarUpdateComponent } from './componenets/car-update/car-update.component';
+import { ProfileComponent } from './componenets/profile/profile.component';
+import { AuthMenuComponent } from './componenets/auth-menu/auth-menu.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { CarUpdateComponent } from './componenets/car-update/car-update.componen
     HeroComponent,
     BrandUpdateComponent,
     ColorUpdateComponent,
-    CarUpdateComponent,    
+    CarUpdateComponent,
+    ProfileComponent,
+    AuthMenuComponent,    
   ],
 
   imports: [
