@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { CarDetail } from 'src/app/models/cardetail';
-import { CardetailService } from 'src/app/services/cardetail.service';
+import { CarDetail } from 'src/app/models/carDetail';
+import { CardetailService } from 'src/app/services/car-detail.service';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({

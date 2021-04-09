@@ -1,4 +1,9 @@
 <div *ngFor="let car of carDetails" class="row mt-3">
+
+    <div class="col-md-12 my-3">
+      <div class="alert alert-warning" role="alert"><span class="fw-bold">Bu araç için gerekli <span class="fw-bolder">Findeks</span> puanı : </span>{{car.findexPoint}}</div>
+    </div>
+
     <div class="col-md-7">
       <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -23,18 +28,22 @@
     <div class="col-md-5">
       <div class="card">
         <div class="card-body">
-          <h2 class="card-title fw-bold mb-3">{{car.carName}}</h2>
+          <h2 class="card-title fw-bold mb-3">{{car.carName}}
+          <button routerLink="/cars/update/{{ car.carId }}" class="btn btn-primary btn-sm ">Güncelle</button></h2> 
+          
+
           <p><strong>Marka: </strong>{{car.brandName}}</p>
           <p><strong>Model Yılı: </strong>{{car.modelYear}}</p>
           <p><strong>Renk: </strong>{{car.colorName}}</p>          
           <p><strong>Günlük Fiyat: </strong>{{car.dailyPrice}}TL</p>
-          <p><strong>Açıklama: </strong>{{car.description}}</p>
-          <button class="btn btn-primary float-start mt-4">Kirala</button>
+          <p><strong>Açıklama: </strong>{{car.description}}</p>  
           <!-- <app-rental [car]="car"></app-rental> -->
+          <div *ngIf="isAuthenticate()">
+            <app-car-rent></app-car-rent>
+         </div>
+
         </div>
       </div>
     </div>
-    <div class="col-md-12 my-3">
-      <div class="alert alert-warning" role="alert"><strong>Gerekli Findeks Puanı : </strong>{{car.findexPoint}}</div>
-    </div>
-  </div>
+
+ </div>

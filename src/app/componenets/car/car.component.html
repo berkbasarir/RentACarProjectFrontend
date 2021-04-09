@@ -21,12 +21,8 @@
 <div class="">
   <div class="row justify-content-xl-center">
 
-
-
     <div class="col-md-3">
-      <app-brand></app-brand>
-      <br />
-      <app-color></app-color>
+      <app-car-filter></app-car-filter>
     </div>
     <div class="row col-md-9">
       <div *ngFor="let car of Cars | filterPipe: filterText" class="col-md-4 mb-4">
@@ -40,7 +36,8 @@
               <b>KDV Dahil:</b> {{ car.dailyPrice | vatAdded: 18 | currency }}
             </p>
             <button (click)="addToCart(car)" class="btn btn-success float-end ms-2">Rent it</button>
-            <button routerLink="/cars/detail/{{ car.carId }}" class="btn btn-primary float-end">Details</button>
+            <button routerLink="/cars/detail/{{ car.carId }}" class="btn btn-primary float-end ms-2">Details</button>
+            <button routerLink="/cars/update/{{ car.carId }}" class="btn btn-primary float-end">Güncelle</button>
           </div>
         </div>
       </div>

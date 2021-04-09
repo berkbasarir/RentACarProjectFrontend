@@ -20,66 +20,47 @@ export class LoginComponent implements OnInit {
   currentCustomerEmail: string = '';
 
   constructor(
-    private formBuilder: FormBuilder,
-    private toastrService: ToastrService,
-    private authService: AuthService,
-    private router: Router,
-    private localStorageService: LocalStorageService,
-    private customerService: CustomerService,
+   private formBuilder: FormBuilder,
+   private toastrService: ToastrService,
+   private authService: AuthService,
+   private router: Router,
+   private localStorageService: LocalStorageService,
+   private customerService: CustomerService,
     ) { }
 
   ngOnInit(): void {
-    this.createLoginForm();
+   this.setCurrentCustomerEmail();
+   this.createLoginForm();
   }
 
   createLoginForm(){
-    this.loginForm = this.formBuilder.group({
-      email: ["", Validators.required],
-      password: ["", Validators.required]
-    })
+   this.loginForm = this.formBuilder.group({
+      email: [this.currentCustomerEmail, [Validators.required, Validators.email]],
+      password: ['', Validators.required]
+   });
   }
 
   login() {
-    if (this.loginForm.invalid) {
-       this.toastrService.warning('Gerekli alanları dikkatlice doldurunuz', 'Hata!');
-       return;
-    }
+   if (this.loginForm.invalid) {
+      this.toastrService.warning('Alanları gerektiği gibi doldurunuz', 'Dikkat');
+      return;
+   }
 
-    let loginModel: LoginModel = Object.assign({}, this.loginForm.value);
+   let loginModel: LoginModel = Object.assign({}, this.loginForm.value);
 
-    this.authService.login(loginModel).subscribe(responseSuccess => {
-       this.toastrService.success(responseSuccess.message, 'Başarılı');
-       this.localStorageService.setToken(responseSuccess.data);
-       this.getCustomerByEmail(loginModel.email);
+   this.authService.login(loginModel).subscribe(responseSuccess => {
+      this.toastrService.success(responseSuccess.message, 'Başarılı');
+      this.localStorageService.setToken(responseSuccess.data);
+      this.getCustomerByEmail(loginModel.email);
 
-       return this.router.navigate(['/cars']);
-    }, responseError => {
+      return this.router.navigate(['/cars']);
+   }, responseError => {
 
-       return this.toastrService.error(
-          responseError.error, 'Hata'
-       );
-    });
- }
-
-  // login(){
-  //   if (this.loginForm.valid) {
-  //     console.log(this.loginForm.value);
-  //     let loginModel = Object.assign({},this.loginForm.value)
-
-  //     this.authService.login(loginModel).subscribe(response => {
-  //       this.toastrService.info(response.message, "Giriş Başarılı")
-  //       this.localStorageService.setToken(response.data);
-  //       this.getCustomerByEmail(loginModel.email);
-  //       return this.router.navigate(["cars"])
-
-  //       // localStorage.setItem("token", response.data.token)
-  //       // this.router.navigate(["cars"])
-  //     },responseError => {
-  //       //console.log(responseError)
-  //       this.toastrService.error(responseError.error, "Giriş Başarısız")
-  //     })
-  //   }
-  // }
+      return this.toastrService.error(
+         responseError.error, 'Hata'
+      );
+   });
+}
 
   getCustomerByEmail(email: string) {
     this.customerService.getCustomerByEmail(email).subscribe(responseSuccess => {

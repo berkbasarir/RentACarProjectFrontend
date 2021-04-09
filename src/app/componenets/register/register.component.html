@@ -1,33 +1,73 @@
-<body class="text-center">
-    <main class="form-signin">
-      <form [formGroup]="registerForm">
-        <!-- <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
-        <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
-    
-
-        <div class="form-floating mb-2">
-            <input formControlName="firstName" type="text" class="form-control" id="floatingFirstName" placeholder="First Name">
-            <label for="floatingInput">First Name</label>
-          </div>
-          <div class="form-floating mb-2">
-            <input formControlName="lastName" type="text" class="form-control" id="floatingLastName" placeholder="Last Name">
-            <label for="floatingInput">Last Name</label>
-          </div>
-        <div class="form-floating mb-2">
-          <input formControlName="email" type="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
-          <label for="floatingInput">Email</label>
+<div class="row text-center body">
+  <div class="col-lg-4 mx-auto my-auto">
+     <div class="card rounded-0 shadow">
+        <div class="card-header fw-bold">
+           <span class="display-6 mb-4">Üye Ol</span> 
         </div>
-        <div class="form-floating mb-2">
-          <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
-          <label for="floatingPassword">Password</label>
-        </div>
+        <div class="card-body">
 
-        <button class="w-100 btn btn-lg btn-primary" (click)="register()">Sign up</button>
-        
-        <p class="mt-2 mb-2 text-muted">Rent a car company &copy; 2020–2021</p>
-      </form>
-    </main>
-    
-    
-        
-      </body>
+           <form [formGroup]="registerForm" (ngSubmit)="register()">
+              <div class="row">
+                 <div class="col-lg-6">
+                    <div class="form-floating mb-3">
+                       <input type="text" class="form-control" id="firstName"
+                              formControlName="firstName" placeholder="firstName">
+                       <label for="firstName">Adınız*</label>
+                    </div>
+                 </div>
+                 <div class="col-lg-6">
+                    <div class="form-floating mb-3">
+                       <input type="text" class="form-control" id="lastName"
+                              formControlName="lastName" placeholder="lastName">
+                       <label for="lastName">Soyadınız*</label>
+                    </div>
+                 </div>
+              </div>
+
+              <div class="form-floating mb-3">
+                 <input type="text" class="form-control" id="companyName"
+                        formControlName="companyName" placeholder="companyName">
+                 <label for="companyName">Şirket Adı*</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                 <input type="email" class="form-control" id="email"
+                        formControlName="email" placeholder="email">
+                 <label for="email">E-Posta Adresiniz*</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                 <input type="password" class="form-control" id="password"
+                        formControlName="password" placeholder="password">
+                 <label for="password">Şifreniz*</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                 <input type="password" class="form-control" id="confirmPassword"
+                        formControlName="confirmPassword" placeholder="confirmPassword">
+                 <label for="confirmPassword">Şifrenizi Onaylayın*</label>
+              </div>
+
+              <div class="row mb-4">
+                 <div class="col-lg-6 my-auto text-start">
+                    <i class="bi-building ms-1"></i> RCC &copy;{{ getYear() }}
+                 </div>
+                 <div class="col-lg-6">
+                    <div class="d-grid">
+                       <button class="btn btn-primary rounded-0">
+                          <i class="bi-plus-square me-1"></i> Üye Ol
+                       </button>
+                    </div>
+                 </div>
+              </div>
+           </form>
+           <div class="d-block text-start">
+              <span class="login" routerLink="/auth/login">
+                 <i class="bi-check2-all me-1  text-center"></i> Zaten bir üyeliğim var
+              </span>
+           </div>
+
+        </div>
+     </div>
+  </div>
+</div>

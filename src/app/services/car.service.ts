@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ListResponseModel } from 'src/app/models/listResponseModel';
 import { Car } from '../models/car';
-import { CarDetail } from '../models/cardetail';
+import { CarDetail } from '../models/carDetail';
 import { ResponseModel } from '../models/responseModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 

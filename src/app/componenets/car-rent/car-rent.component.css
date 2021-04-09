@@ -1,0 +1,14 @@
+ input:focus{
+    border-color: #0D6EFD;
+    box-shadow: none;
+ }
+ 
+ button{
+
+    padding-left: 18px;
+    padding-right: 18px;
+ }
+ 
+ button:focus, button:focus:active{
+    box-shadow: none;
+ }

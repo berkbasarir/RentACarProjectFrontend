@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms"
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DatePipe } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,9 +15,8 @@ import { RentalComponent } from './componenets/rental/rental.component';
 import { NaviComponent } from './componenets/navi/navi.component';
 import { CardetailComponent } from './componenets/car-detail/car-detail.component';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
-import { FilterPipePipe } from './pipes/filter-pipe.pipe';
-
-import { ToastrModule } from "ngx-toastr";
+import { FilterPipePipe } from './pipes/filter-pipe-car.pipe';
+import { ToastrModule } from 'ngx-toastr';
 import { CartSummaryComponent } from './componenets/cart-summary/cart-summary.component';
 import { FilterPipeCustomerPipe } from './pipes/filter-pipe-customer.pipe';
 import { FilterPipeRentalPipe } from './pipes/filter-pipe-rental.pipe';
@@ -25,7 +25,7 @@ import { FilterPipeColorPipe } from './pipes/filter-pipe-color.pipe';
 import { CarAddComponent } from './componenets/car-add/car-add.component';
 import { ColorAddComponent } from './componenets/color-add/color-add.component';
 import { BrandAddComponent } from './componenets/brand-add/brand-add.component';
-import { LoginComponent } from './componenets/login/login.component'
+import { LoginComponent } from './componenets/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './componenets/register/register.component';
 import { FooterComponent } from './componenets/footer/footer.component';
@@ -35,6 +35,11 @@ import { ColorUpdateComponent } from './componenets/color-update/color-update.co
 import { CarUpdateComponent } from './componenets/car-update/car-update.component';
 import { ProfileComponent } from './componenets/profile/profile.component';
 import { AuthMenuComponent } from './componenets/auth-menu/auth-menu.component';
+import { CardComponent } from './componenets/card/card.component';
+import { CardSavedComponent } from './componenets/card-saved/card-saved.component';
+import { CarFilterComponent } from './componenets/car-filter/car-filter.component';
+import { CarRentComponent } from './componenets/car-rent/car-rent.component';
+import { ExpirationInterceptor } from './interceptors/expiration.interceptor';
 
 @NgModule({
   declarations: [
@@ -64,24 +69,29 @@ import { AuthMenuComponent } from './componenets/auth-menu/auth-menu.component';
     ColorUpdateComponent,
     CarUpdateComponent,
     ProfileComponent,
-    AuthMenuComponent,    
+    AuthMenuComponent,
+    CardComponent,
+    CardSavedComponent,
+    CarFilterComponent,
+    CarRentComponent,
   ],
 
   imports: [
-    BrowserModule, 
-    AppRoutingModule, 
+    BrowserModule,
+    AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule,    
+    BrowserAnimationsModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot({positionClass: "toast-bottom-right"}),
+    ToastrModule.forRoot({ positionClass: 'toast-bottom-right' }),
   ],
 
   providers: [
-    { provide:HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true }
+    DatePipe,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ExpirationInterceptor, multi: true, },
   ],
-  
+
   bootstrap: [AppComponent],
 })
-
 export class AppModule {}

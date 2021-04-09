@@ -1,4 +1,4 @@
-import { CarDetail } from "./cardetail";
+import { CarDetail } from "./carDetail";
 
 export class CartItem{
     car: CarDetail;

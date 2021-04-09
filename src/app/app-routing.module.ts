@@ -16,19 +16,18 @@ import { ColorComponent } from './componenets/color/color.component';
 import { ColorUpdateComponent } from './componenets/color-update/color-update.component';
 import { CarUpdateComponent } from './componenets/car-update/car-update.component';
 import { ProfileComponent } from './componenets/profile/profile.component';
+import { CardComponent } from './componenets/card/card.component';
 
 const routes: Routes = [
-  { path: "", pathMatch: "full", component: CarComponent, canActivate:[LoginGuard] },
+  { path: "", pathMatch: "full", component: CarComponent, canActivate:[LoginGuard] },  
 
   { path: "cars", component: CarComponent, canActivate:[LoginGuard] },  
   { path: "cars/add", component: CarAddComponent, canActivate:[LoginGuard] },
   { path: "cars/update/:carId", component: CarUpdateComponent, canActivate:[LoginGuard] },
-  { path: "cars/brand/:brandId", component: CarComponent, canActivate:[LoginGuard] },
-  { path: "cars/color/:colorId", component: CarComponent, canActivate:[LoginGuard] },
   { path: "cars/detail/:carId", component: CardetailComponent, canActivate:[LoginGuard] },
-
-  { path: "customers", component: CustomerComponent, canActivate:[LoginGuard] },
-  { path: "rentals", component: RentalComponent, canActivate:[LoginGuard] },
+  // { path: "cars/brand/:brandId", component: CarComponent, canActivate:[LoginGuard] },
+  // { path: "cars/color/:colorId", component: CarComponent, canActivate:[LoginGuard] },
+  { path: "cars/filter/:brandId/:colorId", component: CarComponent, canActivate:[LoginGuard] },
 
   { path: "colors", component: ColorComponent, canActivate:[LoginGuard] },
   { path: "colors/add", component: ColorAddComponent, canActivate:[LoginGuard] },
@@ -38,9 +37,13 @@ const routes: Routes = [
   { path: "brands/add", component: BrandAddComponent, canActivate:[LoginGuard] },
   { path: "brands/update/:brandId", component: BrandUpdateComponent, canActivate:[LoginGuard] },
 
-  { path: "login", component: LoginComponent },
-  { path: "register", component: RegisterComponent },
-  { path: "profile", component: ProfileComponent },
+  { path: "auth/login", component: LoginComponent },
+  { path: "auth/register", component: RegisterComponent },
+  { path: "auth/profile", component: ProfileComponent, canActivate:[LoginGuard] },
+  
+  { path: "customers", component: CustomerComponent, canActivate:[LoginGuard] },
+  { path: "rentals", component: RentalComponent, canActivate:[LoginGuard] },
+  { path: 'cards', component: CardComponent, canActivate:[LoginGuard] },
 ];
 
 @NgModule({

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { CarDetail } from 'src/app/models/cardetail';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CarDetail } from 'src/app/models/carDetail';
 import { Image } from 'src/app/models/image';
-import { CardetailService } from 'src/app/services/cardetail.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { CardetailService } from 'src/app/services/car-detail.service';
 import { ImageService } from 'src/app/services/image.service';
 
 
@@ -21,6 +22,8 @@ export class CardetailComponent implements OnInit {
     private carDetailService: CardetailService, 
     private imageService: ImageService, 
     private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private authService: AuthService,
     ) { }
 
   ngOnInit(): void {
@@ -44,4 +47,17 @@ export class CardetailComponent implements OnInit {
       console.log(Images.data)
     })
   }
+
+  getCurrentSliderImageClass(sliderImage: Image): string {
+    if (this.images[0] === sliderImage) {
+       return 'carousel-item active';
+    }
+
+    return 'carousel-item';
+ }
+
+ isAuthenticate(): boolean {
+    return this.authService.isAuthenticated();
+ }
+
 }

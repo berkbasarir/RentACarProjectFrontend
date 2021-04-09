@@ -1,53 +1,92 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { CustomerService } from 'src/app/services/customer.service';
+import { Customer } from 'src/app/models/customer';
+import { RegisterModel } from 'src/app/models/registerModel';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+   selector: 'app-register',
+   templateUrl: './register.component.html',
+   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent implements OnInit {
 
-  registerForm:FormGroup;
-  constructor(
-    private formBuilder:FormBuilder, 
-    private authService:AuthService,
-    private toastrService:ToastrService,
-    private router:Router,
-  ) { }
+   registerForm: FormGroup;
+   customer: Customer;
 
-  ngOnInit(): void {
-    this.createRegisterForm()
-  }
+   constructor(private formBuilder: FormBuilder,
+               private toastrService: ToastrService,
+               private authService: AuthService,
+               private router: Router,
+               private localStorageService: LocalStorageService,
+               private customerService: CustomerService) {
+   }
 
-  createRegisterForm(){
-    this.registerForm = this.formBuilder.group({
-      email: ["", Validators.required],
-      password: ["", Validators.required],
-      firstName: ["", Validators.required],
-      lastName: ["", Validators.required],
-    })
-  }
+   ngOnInit(): void {
+      this.createRegisterForm();
+   }
 
- register(){
-    if(this.registerForm.valid){
-      let registerModel = Object.assign({},this.registerForm.value) 
-      this.authService.register(registerModel).subscribe(response => {
-        this.toastrService.success("Succes", response.message)
-        this.router.navigate(["login"])
+   createRegisterForm() {
+      this.registerForm = this.formBuilder.group({
+         firstName: ['', Validators.required],
+         lastName: ['', Validators.required],
+         companyName: ['', Validators.required],
+         email: ['', [Validators.required, Validators.email]],
+         password: ['', Validators.required],
+         confirmPassword: ['', Validators.required]
+      });
+   }
+
+   register() {
+      if (this.registerForm.invalid) {
+         this.toastrService.warning('Lütfen boş alan bırakmayınız', 'Dikkat');
+         return;
+      }
+
+      if (this.registerForm.value['password'] != this.registerForm.value['confirmPassword']) {
+         this.toastrService.error('Şifreler uyuşmuyor', 'Hata');
+         return;
+      }
+
+      delete this.registerForm.value['confirmPassword'];
+      let registerModel: RegisterModel = Object.assign({}, this.registerForm.value);
+
+      this.authService.register(registerModel).subscribe(responseSuccess => {
+         this.localStorageService.setToken(responseSuccess.data);
+         this.getCustomerByEmail(registerModel.email);
+         this.toastrService.success(responseSuccess.message, 'Başarılı');
+
+         return this.router.navigate(['/cars']);
       }, responseError => {
-        if(responseError.error.ValidationErrors.length>0){
-          for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
-            this.toastrService.error(responseError.error.ValidationErrors[i].ErrorMessage, "Doğrulama Hatası") 
-          }
-        }      
-      })
-    }else{
-      this.toastrService.error("Validation Error")
-    }
-  }
+         if (responseError.error.ValidationErrors) {
+            for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
+               this.toastrService.error(
+                  responseError.error.ValidationErrors[i].ErrorMessage, 'Doğrulama Hatası'
+               );
+            }
 
+            return;
+         }
+
+         this.toastrService.error(
+            responseError.status + ' ' + responseError.name, responseError.error
+         );
+      });
+   }
+
+   getCustomerByEmail(email: string) {
+      this.customerService.getCustomerByEmail(email).subscribe(responseSuccess => {
+         this.customer = responseSuccess.data;
+         this.localStorageService.setCurrentCustomer(this.customer);
+      });
+   }
+
+   getYear() {
+      return new Date().getFullYear();
+   }
 }
