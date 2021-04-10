@@ -1,6 +1,6 @@
 <div class="mb-2">
-   <select class="form-select" size="6" aria-label="size 6 select example" [(ngModel)]="brandFilter">
-      <option value="0">- - Marka Seçiniz - -</option>
+   <select class="form-select" size="7" aria-label="size 7 select example" [(ngModel)]="brandFilter">
+      <option value="0">Markalar</option>
 
       <option *ngFor="let brand of brands" value="{{ brand.id }}">
          {{ brand.name }}
@@ -9,8 +9,8 @@
 </div>
 
 <div class="mb-2">
-   <select class="form-select" size="6" aria-label="size 6 select example" [(ngModel)]="colorFilter">
-      <option value="0">- - Renk Seçiniz - -</option>
+   <select class="form-select" size="7" aria-label="size 7 select example" [(ngModel)]="colorFilter">
+      <option value="0">Renkler</option>
 
       <option *ngFor="let color of colors" value="{{ color.id }}">
          {{ color.name }}

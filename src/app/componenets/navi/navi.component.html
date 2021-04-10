@@ -1,72 +1,82 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg sticky-top">
+<nav class="navbar  navbar-expand-xl navbar-dark bg sticky-top">
   <div class="container">
     <div class="row">
       <div class="d-flex">
-        <div class="col-2">
+
+        <div class="col-4">
           <div class="collapse navbar-collapse" id="navbarSupportedContent1">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active fw-bold" aria-current="page" routerLink=""
-                  >RCC</a
-                >
+                <a class="nav-link active fw-bold" aria-current="page" routerLink="">RUNCORP</a>
               </li>
             </ul>
           </div>
         </div>
+
         <div class="col-8">
           <div class="collapse navbar-collapse" id="navbarSupportedContent2">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" routerLink=""
-                  >Home</a
-                >
+                <a class="nav-link" routerLink="">Anasayfa</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/cars">Araçlar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/brands">Markalar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/colors">Renkler</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/customers">Müşteriler</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/rentals">Kiralamalar</a>
+              </li>
+
+              <li class="nav-item dropdown ms-3">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ekle</a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li>
+                      <a class="dropdown-item" routerLink="/cars/add">Araç Ekle</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" routerLink="/brands/add">Marka Ekle</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" routerLink="/colors/add">Renk Ekle</a>
+                    </li>
+                  </ul>
+              </li>
+
               <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                  >Add</a
-                >
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li>
-                    <a class="dropdown-item" routerLink="/cars/add">Car</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" routerLink="/brands/add">Brand</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" routerLink="/colors/add">Color</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/cars">Cars</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/brands">Brands</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/colors">Colors</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/customers">Customers</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/rentals">Rentals</a>
-              </li>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Güncelle</a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li>
+                      <a class="dropdown-item" routerLink="/cars/add">Araç Güncelle</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" routerLink="/brands/add">Marka Güncelle</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" routerLink="/colors/add">Renk Güncelle</a>
+                    </li>
+                  </ul>
+              </li>       
+
               <li class="nav-item">
                 <app-auth-menu></app-auth-menu>
               </li>
+
               <li class="nav-item">
                 <app-cart-summary></app-cart-summary>
               </li>
             </ul>
           </div>
         </div>
+
       </div>
     </div>
   </div>
