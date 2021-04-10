@@ -17,6 +17,7 @@ import { ColorUpdateComponent } from './componenets/color-update/color-update.co
 import { CarUpdateComponent } from './componenets/car-update/car-update.component';
 import { ProfileComponent } from './componenets/profile/profile.component';
 import { CardComponent } from './componenets/card/card.component';
+import { CardSavedComponent } from './componenets/card-saved/card-saved.component';
 
 const routes: Routes = [
   { path: "", pathMatch: "full", component: CarComponent, canActivate:[LoginGuard] },  
@@ -43,7 +44,9 @@ const routes: Routes = [
   
   { path: "customers", component: CustomerComponent, canActivate:[LoginGuard] },
   { path: "rentals", component: RentalComponent, canActivate:[LoginGuard] },
+
   { path: 'cards', component: CardComponent, canActivate:[LoginGuard] },
+  // Bitmedi { path: 'cards/registered/:customerId', component: CardSavedComponent, canActivate:[LoginGuard] },
 ];
 
 @NgModule({

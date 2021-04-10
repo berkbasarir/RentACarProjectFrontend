@@ -17,11 +17,11 @@ export class CardService {
    }
 
    add(card: Card): Observable<ResponseModel> {
-      return this.httpClient.post<ResponseModel>(this.apiUrl, card);
+      return this.httpClient.post<ResponseModel>(this.apiUrl + "/add", card);
    }
 
    getByCustomerId(customerId: number): Observable<ListResponseModel<Card>> {
-      let getByCustomerPath = this.apiUrl + '/getbycustomerId?customerId=' + customerId;
-      return this.httpClient.get<ListResponseModel<Card>>(getByCustomerPath);
+      let newPath = this.apiUrl + "/getbycustomerid?customerId=" + customerId;
+      return this.httpClient.get<ListResponseModel<Card>>(newPath);
    }
 }
