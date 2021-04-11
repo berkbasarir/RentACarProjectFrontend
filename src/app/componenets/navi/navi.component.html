@@ -21,7 +21,7 @@
                 <a class="nav-link" routerLink="">Anasayfa</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLink="/cars">Araçlar</a>
+                <a class="nav-link" routerLink="/cars">Arabalar</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" routerLink="/brands">Markalar</a>
@@ -36,11 +36,11 @@
                 <a class="nav-link" routerLink="/rentals">Kiralamalar</a>
               </li>
 
-              <li class="nav-item dropdown ms-3">
+              <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ekle</a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li>
-                      <a class="dropdown-item" routerLink="/cars/add">Araç Ekle</a>
+                      <a class="dropdown-item" routerLink="/cars/add">Araba Ekle</a>
                     </li>
                     <li>
                       <a class="dropdown-item" routerLink="/brands/add">Marka Ekle</a>
@@ -49,24 +49,9 @@
                       <a class="dropdown-item" routerLink="/colors/add">Renk Ekle</a>
                     </li>
                   </ul>
-              </li>
+              </li>     
 
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Güncelle</a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li>
-                      <a class="dropdown-item" routerLink="/cars/add">Araç Güncelle</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" routerLink="/brands/add">Marka Güncelle</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" routerLink="/colors/add">Renk Güncelle</a>
-                    </li>
-                  </ul>
-              </li>       
-
-              <li class="nav-item">
+              <li class="nav-item ms-5">
                 <app-auth-menu></app-auth-menu>
               </li>
 

@@ -21,7 +21,7 @@ export class CardService {
    }
 
    getByCustomerId(customerId: number): Observable<ListResponseModel<Card>> {
-      let newPath = this.apiUrl + "/getbycustomerid?customerId=" + customerId;
+      let newPath = this.apiUrl + "/getcardsbycustomerid?customerId=" + customerId;
       return this.httpClient.get<ListResponseModel<Card>>(newPath);
    }
 }

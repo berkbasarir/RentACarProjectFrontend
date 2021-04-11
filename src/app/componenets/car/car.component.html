@@ -1,29 +1,66 @@
-<div>
-  <div *ngIf="dataLoaded == false" class="spinner-border" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-  
-  
-  <div class="mb-3">
-    <input
-      type="text"
-      [(ngModel)]="filterText"
-      class="form-control form-control-lg"
-      id="filterText"
-      placeholder="Search vehicle specification"
-    />
-  </div>
-  <div *ngIf="filterText" class="alert alert-info">
-    <b>You are looking for:</b> {{ filterText }}
-  </div> 
+<div class="container-fluid mt-3 px-5">
+    <div class="row">
 
+      <div class="col-12">
+        <div *ngIf="dataLoaded == false" class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="mb-3">
+          <input type="text" [(ngModel)]="filterText" class="form-control form-control-lg" id="filterText" placeholder="Araç özelliği arama"/>
+        </div>
+
+        <div *ngIf="filterText" class="alert alert-info">
+          <b>Aranılan özellik:</b> {{ filterText }}
+        </div> 
+      </div>
+      
+      <div class="col-xl-2 col-lg-3">
+        <app-car-filter></app-car-filter>
+      </div>
+
+      <div class="col-xl-10 col-lg-9">
+        <div class="row">
+          <div *ngFor="let car of Cars | filterPipe: filterText" class="col-xxl-2 col-xl-3 col-lg-4 col-md-6">        
+            <div class="card mb-3">  
+              <div class="align-items-center text-center">
   
-<div class="">
+                <img [src]="SetImage(car)" alt="" class="card-img-top image rounded">
+  
+                <h5 class="mt-4">{{ car.carName | uppercase }}</h5>
+  
+                <div class="mt-2 info">
+                  <span class="description-text d-block">{{ car.description }}</span>
+                </div>
+  
+                <div class="cost mt-4 text-dark">                  
+                  <span>{{ car.dailyPrice | vatAdded: 18 }}₺</span>
+                  <span class="cost-text d-block">/ GÜN</span>
+                </div>
+
+              </div>  
+              <div class="p-3 mt-4 button text-center text-white cursor rounded" routerLink="/cars/detail/{{ car.carId }}">
+                <span class="text-uppercase">Araç Detayları</span>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+</div>
+
+<!-- <div class="">
   <div class="row justify-content-xl-center">
 
     <div class="col-md-3">
       <app-car-filter></app-car-filter>
     </div>
+
     <div class="row col-md-9">
       <div *ngFor="let car of Cars | filterPipe: filterText" class="col-md-4 mb-4">
         <div class="card">
@@ -35,16 +72,13 @@
               <b>Günlük Fiyat:</b> {{ car.dailyPrice | currency }} <br />
               <b>KDV Dahil:</b> {{ car.dailyPrice | vatAdded: 18 | currency }}
             </p>
-            <button (click)="addToCart(car)" class="btn btn-success float-end ms-2">Rent it</button>
-            <button routerLink="/cars/detail/{{ car.carId }}" class="btn btn-primary float-end ms-2">Details</button>
-            <button routerLink="/cars/update/{{ car.carId }}" class="btn btn-primary float-end">Güncelle</button>
+            <button routerLink="/cars/detail/{{ car.carId }}" class="btn btn-primary float-end ms-2">Daha fazla bilgi</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-</div>
+</div> -->
 
 <!-- <h4>CARS</h4>
 <table class="table">

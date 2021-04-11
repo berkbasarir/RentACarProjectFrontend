@@ -1,6 +1,7 @@
-<div *ngFor="let car of carDetails" class="row mt-3">
+<div class="container mt-3">
+  <div *ngFor="let car of carDetails" class="row">
 
-    <div class="col-md-12 my-3">
+    <div class="col-md-12">
       <div class="alert alert-warning" role="alert"><span class="fw-bold">Bu araç için gerekli <span class="fw-bolder">Findeks</span> puanı : </span>{{car.findexPoint}}</div>
     </div>
 
@@ -9,7 +10,7 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img *ngFor="let image of images" src="https://localhost:44351/uploads/{{image.imagePath}}"
-              class="d-block myimg" alt="...">
+              class="d-block myimg" alt="{{car.description}}">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -28,22 +29,23 @@
     <div class="col-md-5">
       <div class="card">
         <div class="card-body">
-          <h2 class="card-title fw-bold mb-3">{{car.carName}}
-          <button routerLink="/cars/update/{{ car.carId }}" class="btn btn-primary btn-sm ">Güncelle</button></h2> 
-          
+
+          <h2 class="card-title fw-bold mb-4">{{car.carName}}
+          <button routerLink="/cars/update/{{ car.carId }}" class="btn btn-primary btn-sm ">Güncelle</button></h2>           
 
           <p><strong>Marka: </strong>{{car.brandName}}</p>
           <p><strong>Model Yılı: </strong>{{car.modelYear}}</p>
           <p><strong>Renk: </strong>{{car.colorName}}</p>          
-          <p><strong>Günlük Fiyat: </strong>{{car.dailyPrice}}TL</p>
+          <p><strong>Günlük Fiyat: </strong>{{car.dailyPrice | vatAdded: 18 }}₺</p>
           <p><strong>Açıklama: </strong>{{car.description}}</p>  
-          <!-- <app-rental [car]="car"></app-rental> -->
+          
           <div *ngIf="isAuthenticate()">
             <app-car-rent></app-car-rent>
-         </div>
+          </div>
 
         </div>
       </div>
     </div>
 
  </div>
+</div>

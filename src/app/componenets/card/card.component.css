@@ -1,6 +1,4 @@
-* {
-    border-radius: 0;
- }
+
  
  *:focus, *:focus:active {
     box-shadow: none;
@@ -12,10 +10,6 @@
  
  .form-check-input, .form-check-label{
     cursor: pointer;
- }
- 
- .form-check-input{
-    border-radius: 0;
  }
  
  button{

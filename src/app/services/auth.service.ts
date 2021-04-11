@@ -34,15 +34,15 @@ export class AuthService {
 
   isAuthenticated(): boolean{
 
-    // return !!this.localStorageService.getToken();
+    return !!this.localStorageService.getToken();
 
-    if(localStorage.getItem("token")){
-      return true;
-    }
-    else{
-      return false;
-    }
-  }
+  //   if(localStorage.getItem("token")){
+  //     return true;
+  //   }
+  //   else{
+  //     return false;
+  //   }
+ }
 
 
 
